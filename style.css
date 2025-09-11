@@ -1,27 +1,24 @@
 html {
   scroll-behavior: smooth;
 }
-contact-form .form-row {
-    flex-direction: column;
-}
 
-/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Global styles */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: white;
-  color: #004d00; /* dark green */
+  color: #004d00;
   line-height: 1.6;
 }
 
-/* Header */
+/* Header styles */
 header {
-  background-color: #004d00; /* dark green */
+  background-color: #004d00;
   color: white;
   padding: 15px 20px;
 }
@@ -51,17 +48,26 @@ header {
 }
 
 .nav-links li a:hover {
-  color: #66bb66; /* lighter green on hover */
+  color: #66bb66;
 }
 
-.menu-toggle {
+/* Hamburger icon */
+.hamburger {
   display: none;
-  font-size: 2rem;
+  flex-direction: column;
   cursor: pointer;
-  color: white;
+  gap: 5px;
 }
 
-/* Center align all main content except header and footer */
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Main content styling */
 main, section, .card, .contact-section, #home {
   text-align: center;
   max-width: 900px;
@@ -69,19 +75,19 @@ main, section, .card, .contact-section, #home {
   padding: 20px;
 }
 
-/* Home section - flex container with text and image closer */
+/* Home section */
 .home-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px; /* smaller gap to bring them closer */
+  gap: 30px;
   flex-wrap: wrap;
   padding: 20px;
 }
 
 .home-text {
   flex: 1 1 300px;
-  text-align: left; /* keep text left aligned inside home-text */
+  text-align: left;
 }
 
 .home-text h1 {
@@ -117,7 +123,7 @@ main, section, .card, .contact-section, #home {
   background-color: #339933;
 }
 
-/* Image with scale hover effect */
+/* Home image */
 .home-image {
   flex: 1 1 300px;
   overflow: hidden;
@@ -126,6 +132,18 @@ main, section, .card, .contact-section, #home {
   animation: fadeInUp 1.9s ease forwards;
 }
 
+.home-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.home-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Button */
 .btn {
   background-color: #004d00;
   color: white;
@@ -148,20 +166,9 @@ main, section, .card, .contact-section, #home {
   background-color: #339933;
 }
 
-.home-image img {
-  max-width: 100%;
-  border-radius: 12px;
-  transition: transform 0.4s ease;
-  display: block;
-}
-
-.home-image img:hover {
-  transform: scale(1.05);
-}
-
 /* Cards */
 .card {
-  background-color: #e6f2e6; /* very light green */
+  background-color: #e6f2e6;
   border-radius: 12px;
   padding: 25px 30px;
   margin-bottom: 25px;
@@ -170,7 +177,6 @@ main, section, .card, .contact-section, #home {
   text-align: center;
 }
 
-/* Lists inside cards */
 .card ul {
   list-style-type: none;
   padding-left: 0;
@@ -191,7 +197,7 @@ main, section, .card, .contact-section, #home {
   padding: 20px;
   text-align: center;
   color: #004d00;
-  background-color: #e6f2e6; /* light green background */
+  background-color: #e6f2e6;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 77, 0, 0.1);
 }
@@ -210,7 +216,6 @@ main, section, .card, .contact-section, #home {
   color: #004d00;
 }
 
-/* Updated styling for contact info to match screenshot */
 .contact-info p {
   font-weight: 600;
   margin-bottom: 10px;
@@ -263,6 +268,7 @@ main, section, .card, .contact-section, #home {
 
 .contact-form .form-row {
   display: flex;
+  flex-direction: column;
   gap: 15px;
 }
 
@@ -312,7 +318,7 @@ main, section, .card, .contact-section, #home {
   background-color: #339933;
 }
 
-/* Projects section */
+/* Projects */
 .project-links {
   display: flex;
   flex-wrap: wrap;
@@ -338,10 +344,12 @@ main, section, .card, .contact-section, #home {
 footer {
   background-color: #004d00;
   color: white;
-  text-align: center; /* Center align footer text */
+  text-align: center;
   padding: 15px 20px;
   font-size: 0.9rem;
 }
+
+/* === YOUR EXISTING STYLES remain untouched above this line === */
 
 /* Animations */
 @keyframes fadeInUp {
@@ -355,13 +363,48 @@ footer {
   }
 }
 
-/* Responsive */
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hamburger toggle animation to X */
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.hamburger span {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Focus styles for accessibility */
+.hamburger:focus {
+  outline: 2px solid #66bb66;
+  outline-offset: 4px;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .home-container {
     flex-direction: column;
   }
 
-  .home-text, .home-image {
+  .home-text,
+  .home-image {
     text-align: center;
   }
 
@@ -375,12 +418,45 @@ footer {
 
   .nav-links {
     display: none;
+    flex-direction: column;
+    background-color: #004d00;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 20px;
+    gap: 15px;
+    border-radius: 8px;
+    z-index: 1000;
+    animation: slideInFromRight 0.3s ease-out forwards;
+    transform-origin: center right;
   }
 
-  .menu-toggle {
-    display: block;
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
   }
 }
+
+/* Optional: reset nav-links for wider screens */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: none;
+    padding: 0;
+    gap: 20px;
+  }
+
+  .hamburger {
+    display: none !important;
+  }
+}
+
+/* Back to top */
 .back-to-top {
   position: fixed;
   bottom: 30px;
@@ -394,7 +470,7 @@ footer {
   align-items: center;
   justify-content: center;
   font-size: 1.7rem;
-  box-shadow: 0 2px 8px rgba(0,77,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 77, 0, 0.15);
   cursor: pointer;
   z-index: 1000;
   transition: background 0.3s, transform 0.2s;
@@ -406,12 +482,13 @@ footer {
   transform: scale(1.1);
 }
 
-/* Hide on small screens if needed */
 @media (max-width: 600px) {
-  .back-to-top {bottom: 15px;
+  .back-to-top {
+    bottom: 15px;
     right: 15px;
     width: 40px;
     height: 40px;
     font-size: 1.3rem;
   }
 }
+

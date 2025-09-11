@@ -9,22 +9,33 @@
   <!-- ...existing code... -->
 </head>
 <body>
-  <!-- Navigation -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">Luyanda Gamanye</div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills & Experience</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#hire">Hire Me</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="menu-toggle" id="menuToggle">&#9776;</div>
-    </nav>
-  </header>
+<!-- Navigation -->
+<header>
+  <nav class="navbar">
+    <div class="logo">Luyanda Gamanye</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills & Experience</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#hire">Hire Me</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+   <div
+  class="hamburger"
+  id="hamburger"
+  role="button"
+  aria-label="Menu"
+  aria-expanded="false"
+  tabindex="0"
+>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+  </nav>
+</header>
 
   <!-- Home Section -->
   <section id="home" class="home-section">
@@ -109,14 +120,20 @@
     <li>
       <strong>Introduction to AI and Generative AI</strong><br>
       Issued by: CAPACITI<br>
-      Date: aug 2025<br>
+      Date: Aug 2025<br>
       <a href="/Assets/Luyanda Gamanye-210297833.pdf Technical Support Learnership Completion Certificate.pdf" target="_blank" class="btn">View Certificate</a>
     </li>
     <li>  
       <strong>AI For Everyone</strong><br>
       Issued by: CAPACITI<br>
       Date: Aug 2025<br>
-      <a href="/Assets/Luyanda Gamanye-210264515.pdf Gamanye-210297833.pdf Technical Support Learnership Completion Certificate.pdf" target="_blank" class="btn">View Certificate</a>    
+      <a href="/Assets/Luyanda Gamanye-210264515.pdf Gamanye-210297833.pdf Technical Support Learnership Completion Certificate.pdf" target="_blank" class="btn">View Certificate</a>
+    </li>
+    <li>  
+      <strong>Generative AI With Large Language Models </strong><br>
+      Issued by: Coursera/AWS/Deep Learning.AI<br>
+      Date: Sep 2025<br>
+      <a href="/Assets/Coursera CSA5IZFCDCZ0.pdf Gamanye-210297833.pdf Technical Support Learnership Completion Certificate.pdf" target="_blank" class="btn">View Certificate</a>    
     <!-- Add more certificates as needed -->
     
   </ul>
@@ -193,13 +210,24 @@
     <i class="fas fa-arrow-up"></i>
   </a>
 
-  <script>
-    // Mobile menu toggle script
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-  </script>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  // Toggle nav visibility and accessibility state
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', !expanded);
+  });
+
+  // Enable keyboard interaction (Enter or Space)
+  hamburger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      hamburger.click();
+    }
+  });
+</script>
 </body>
 </html>
