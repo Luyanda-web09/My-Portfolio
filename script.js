@@ -1,7 +1,7 @@
 // Menu toggle for mobile
-document.getElementById('menuToggle').addEventListener('click', () => {
+document.getElementById('hamburger').addEventListener('click', () => {
   const navLinks = document.getElementById('navLinks');
-  navLinks.classList.toggle('active');
+  navLinks.classList.toggle('show'); // use 'show' to match your CSS
 });
 
 // Contact form submission with feedback
