@@ -9,6 +9,13 @@
   <!-- ...existing code... -->
 </head>
 <body>
+  <!-- Decorative animated background blobs (pure CSS) -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="blob b4"></div>
+  </div>
 <!-- Navigation -->
 <header>
   <nav class="navbar">
@@ -43,8 +50,7 @@
       <div class="home-text">
         <h1>Welcome.</h1>
         <p>
-          I am <strong>Luyanda Gamanye</strong>, an IT Tech Support Specialist and Software Developer dedicated to providing efficient technical support and innovative software solutions.
-        </p>
+          I am a technologist and designer with a unique blend of skills in front-end development (JavaScript, HTML, CSS), AI, and IT support. This background allows me to approach UI/UX design with a rare combination of empathy, technical pragmatism, and a vision for intelligent systems. I specialize in creating intuitive, data-informed, and automated user experiences that are not only beautiful but also robust and user-focused from the ground up.
         <a href="#hire" class="btn hire-btn">Hire Me</a>
       </div>
       <div class="home-image">
@@ -57,98 +63,313 @@
   <section id="about" class="card green-bg">
     <h2>About Me</h2>
     <p>
-      Hi, I’m <b>Luyanda Gamanye</b>, an IT Tech Support specialist passionate about merging technical troubleshooting with innovative AI solutions.
-      With experience in building AI-driven tools such as resume builders, chatbots, content generators, and sentiment analysis dashboards, I enjoy
-      creating technologies that make everyday tasks easier and smarter.
+      I'm <strong>Luyanda Gamaye</strong>, a problem-solver at heart. My unique blend of skills in IT Support, Software Development, and UI/UX Design allows me to create digital products that are not only technically sound but also genuinely user-friendly. I translate user needs into seamless and engaging experiences, ensuring the technology serves the human using it.
     </p>
   </section>
 
   <!-- Skills & Experience Section -->
+  <!-- Skills & Experience Section -->
   <section id="skills" class="card green-bg">
-    <h2>Skills & Experience:</h2>
-    <p><b>IT Technical Support & Hardware Troubleshooting:</b> Extensive experience in diagnosing and resolving hardware and software issues to maintain smooth IT operations.</p>
-    <p><b>Programming:</b> Proficient in Python and JavaScript for developing automation tools, AI applications, and software solutions.</p>
-    <p><b>AI & NLP:</b> Skilled in Natural Language Processing, Machine Learning, and chatbot development.</p>
-    <p><b>Automation:</b> Hands-on experience in creating automated workflows and intelligent systems.</p>
-    <p><b>Data Visualization:</b> Building dashboards and analysis tools for insights and decision-making.</p>
-    <h3>Professional Experience:</h3>
-    <p><b>Advanced Digital Associate:</b><br>
-    Capaciti — July 2025 to Present<br>
-    Supporting digital transformation initiatives by leveraging advanced technical skills to optimize business processes and improve service delivery.</p>
-    <p><b>Helpdesk Technician / Desktop Engineer (Practical Training):</b><br>
-    In2food — January 2025 to June 2025<br>
-    Provided technical support to end-users, diagnosing and resolving hardware and software issues. Installed, configured, and maintained desktop systems and peripherals, ensuring reliable IT infrastructure.</p>
-    <p><b>Remote IT Technical Support Learner:</b><br>
-    Preasignis — July 2024 to June 2025<br>
-    Completed a remote learnership focused on IT technical support, gaining practical experience in troubleshooting, user support, and IT operations.</p>
+    <h2>Skills & Experience</h2>
+    
+    <!-- Skills Grid -->
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <div class="skill-info">
+          <h3>IT Technical Support</h3>
+          <p>Hardware troubleshooting, software diagnostics, and system maintenance for smooth IT operations.</p>
+          <div class="skill-tags">
+            <span>Hardware</span>
+            <span>Software</span>
+            <span>Troubleshooting</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="skill-info">
+          <h3>Programming</h3>
+          <p>Web development using modern technologies and frameworks.</p>
+          <div class="skill-tags">
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <div class="skill-info">
+          <h3>AI & NLP</h3>
+          <p>Natural Language Processing, Machine Learning, and chatbot development.</p>
+          <div class="skill-tags">
+            <span>Machine Learning</span>
+            <span>NLP</span>
+            <span>Chatbots</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="skill-info">
+          <h3>Automation</h3>
+          <p>Creating automated workflows and intelligent systems for improved efficiency.</p>
+          <div class="skill-tags">
+            <span>Workflow</span>
+            <span>Automation</span>
+            <span>Systems</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <i class="fas fa-chart-bar"></i>
+        </div>
+        <div class="skill-info">
+          <h3>Data Visualization</h3>
+          <p>Building interactive dashboards and analysis tools for insights.</p>
+          <div class="skill-tags">
+            <span>Dashboards</span>
+            <span>Analytics</span>
+            <span>Reporting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience Timeline -->
+    <div class="experience-timeline">
+      <h3>Professional Experience</h3>
+      
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="timeline-content">
+          <h4>Advanced Digital Associate</h4>
+          <p class="timeline-period">Capaciti — July 2025 to Present</p>
+          <p>Supporting digital transformation initiatives by leveraging advanced technical skills to optimize business processes and improve service delivery.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fas fa-laptop-medical"></i>
+        </div>
+        <div class="timeline-content">
+          <h4>Helpdesk Technician / Desktop Engineer</h4>
+          <p class="timeline-period">In2food — January 2025 to June 2025</p>
+          <p>Provided technical support to end-users, diagnosing and resolving hardware and software issues. Installed, configured, and maintained desktop systems and peripherals, ensuring reliable IT infrastructure.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="timeline-content">
+          <h4>Remote IT Technical Support Learner</h4>
+          <p class="timeline-period">Preasignis — July 2024 to June 2025</p>
+          <p>Completed a remote learnership focused on IT technical support, gaining practical experience in troubleshooting, user support, and IT operations.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Certificates Section -->
 <section id="certificates" class="card green-bg">
   <h2>Certificates</h2>
-  <ul>
-    <li>
-      <strong>AI For Everyone</strong><br>
-      Issued by: Coursera/Deep Learning.AI<br>
-      Date: July 2025<br>
-      <a href="/Assets/Coursera AI for Everyone.pdf" target="_blank" class="btn">View Certificate</a>
-    </li>
-    <li>
-      <strong>AI Essentials</strong><br>
-      Issued by: Coursera/Intel<br>
-      Date: Aug 2025<br>
-      <a href="/Assets/Coursera DEMD2QUIR2N3.pdf" target="_blank" class="btn">View Certificate</a>
-    </li>
-    <li>
-      <strong>Introduction To Generative AI</strong><br>
-      Issued by: Coursera/Google Cloud<br>
-      Date: Aug 2025<br>
-      <a href="/Assets/Coursera KDZN6HJI93DE.pdf" target="_blank" class="btn">View Certificate</a>
-    </li>
-    <li>
-      <strong>Introduction to Artificial Intelligence(AI)</strong><br>
-      Issued by:Coursera/IBM<br>
-      Date: Aug 2025<br>
-      <a href="/Assets/Coursera ZL28OBJLW4ME.pdf AI.pdf" target="_blank" class="btn">View Certificate</a>
-    </li>
-    <li>
-      <strong>Praesignis Confirmation Letter</strong><br>
-      Issued by: Praesignis<br>
-      Date: July 2025<br>
-      <a href="/Assets/Praesignis Confirmation Letter-Luyanda.pdf AI Product Manager.pdf" target="_blank" class="btn">View Certificate</a>
-    </li>
-    <li>
-      <strong>Introduction to AI and Generative AI</strong><br>
-      Issued by: CAPACITI<br>
-      Date: Aug 2025<br>
-      <a href="/Assets/Luyanda Gamanye-210297833.pdf Technical Support Learnership Completion Certificate.pdf" target="_blank" class="btn">View Certificate</a>
-    </li>
-    <li>  
-      <strong>AI For Everyone</strong><br>
-      Issued by: CAPACITI<br>
-      Date: Aug 2025<br>
-      <a href="/Assets/Luyanda Gamanye-210264515.pdf Gamanye-210297833.pdf Technical Support Learnership Completion Certificate.pdf" target="_blank" class="btn">View Certificate</a>
-    </li>
-    <li>  
-      <strong>Generative AI With Large Language Models </strong><br>
-      Issued by: Coursera/AWS/Deep Learning.AI<br>
-      Date: Sep 2025<br>
-      <a href="/Assets/Coursera CSA5IZFCDCZ0.pdf Gamanye-210297833.pdf Technical Support Learnership Completion Certificate.pdf" target="_blank" class="btn">View Certificate</a>    
-    <!-- Add more certificates as needed -->
-    
-  </ul>
+  <div class="certificates-grid">
+    <div class="certificate-card">
+      <div class="certificate-preview">
+        <img src="/Assets/previews/ai-for-everyone.jpg" alt="AI For Everyone Certificate Preview">
+      </div>
+      <div class="certificate-info">
+        <h3>AI For Everyone</h3>
+        <p>Issued by: Coursera/Deep Learning.AI</p>
+        <p>Date: July 2025</p>
+        <a href="/Assets/Coursera AI for Everyone.pdf" target="_blank" class="btn">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview">
+        <img src="/Assets/previews/ai-essentials.jpg" alt="AI Essentials Certificate Preview">
+      </div>
+      <div class="certificate-info">
+        <h3>AI Essentials</h3>
+        <p>Issued by: Coursera/Intel</p>
+        <p>Date: Aug 2025</p>
+        <a href="/Assets/Coursera DEMD2QUIR2N3.pdf" target="_blank" class="btn">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview">
+        <img src="/Assets/previews/gen-ai-google.jpg" alt="Generative AI Certificate Preview">
+      </div>
+      <div class="certificate-info">
+        <h3>Introduction To Generative AI</h3>
+        <p>Issued by: Coursera/Google Cloud</p>
+        <p>Date: Aug 2025</p>
+        <a href="/Assets/Coursera KDZN6HJI93DE.pdf" target="_blank" class="btn">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview">
+        <img src="/Assets/previews/ai-ibm.jpg" alt="IBM AI Certificate Preview">
+      </div>
+      <div class="certificate-info">
+        <h3>Introduction to Artificial Intelligence(AI)</h3>
+        <p>Issued by: Coursera/IBM</p>
+        <p>Date: Aug 2025</p>
+        <a href="/Assets/Coursera ZL28OBJLW4ME.pdf" target="_blank" class="btn">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview">
+        <img src="/Assets/previews/praesignis.jpg" alt="Praesignis Certificate Preview">
+      </div>
+      <div class="certificate-info">
+        <h3>Praesignis Confirmation Letter</h3>
+        <p>Issued by: Praesignis</p>
+        <p>Date: July 2025</p>
+        <a href="/Assets/Praesignis Confirmation Letter-Luyanda.pdf" target="_blank" class="btn">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview">
+        <img src="/Assets/previews/capaciti-gen-ai.jpg" alt="Capaciti Gen AI Certificate Preview">
+      </div>
+      <div class="certificate-info">
+        <h3>Introduction to AI and Generative AI</h3>
+        <p>Issued by: CAPACITI</p>
+        <p>Date: Aug 2025</p>
+        <a href="/Assets/Luyanda Gamanye-210297833.pdf" target="_blank" class="btn">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview">
+        <img src="/Assets/previews/capaciti-ai.jpg" alt="Capaciti AI Certificate Preview">
+      </div>
+      <div class="certificate-info">
+        <h3>AI For Everyone</h3>
+        <p>Issued by: CAPACITI</p>
+        <p>Date: Aug 2025</p>
+        <a href="/Assets/Luyanda Gamanye-210264515.pdf" target="_blank" class="btn">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="certificate-card">
+      <div class="certificate-preview">
+        <img src="/Assets/previews/gen-ai-llm.jpg" alt="Generative AI with LLM Certificate Preview">
+      </div>
+      <div class="certificate-info">
+        <h3>Generative AI With Large Language Models</h3>
+        <p>Issued by: Coursera/AWS/Deep Learning.AI</p>
+        <p>Date: Sep 2025</p>
+        <a href="/Assets/Coursera CSA5IZFCDCZ0.pdf" target="_blank" class="btn">View Certificate</a>
+      </div>
+    </div>
+  </div>
 </section>
   <!-- Projects Section -->
   <section id="projects" class="card green-bg">
     <h2>Projects</h2>
-    <div class="project-links">
-      <a href="https://ai-chatbot-a660e3.zapier.app" target="_blank" class="project-link">AI Chatbot</a>
-      <a href="https://www.figma.com/design/3U1FB1X9exUrRMmNffGmfg/Plant-Guard?node-id=0-1&t=POXWMiZMoZLtl5Gq-1" target="_blank" class="project-link">Plant Guard</a>
-      <a href="https://colab.research.google.com/drive/1Ko6NcWUhURONCSAYbRxiWqvs3Yg_GCAH?usp=sharing" target="_blank" class="project-link">Google Colab Project</a>
-      <a href="https://nicholas-sparks-book-showcase.netlify.app/" target="_blank" class="project-link">Book Showcase</a>
-      <a href="https://devbybyron-sentiment-analysis-dashboard-app-wjrvks.streamlit.app/" target="_blank" class="project-link">Sentiment Dashboard</a>
-      <a href="https://app--resume-ai-8e76b487.base44.app" target="_blank" class="project-link">Resume AI</a>
-      <a href="https://readeazy.netlify.app/" target="_blank" class="project-link">ReadEazy</a>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-preview">
+          <img src="/Assets/previews/ai-chatbot.jpg" alt="AI Chatbot Preview">
+        </div>
+        <div class="project-info">
+          <h3>AI Chatbot</h3>
+          <p>An intelligent chatbot powered by AI that can engage in natural conversations and assist users with various tasks.</p>
+          <a href="https://ai-chatbot-a660e3.zapier.app" target="_blank" class="project-link">View Project</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-preview">
+          <img src="/Assets/previews/plant-guard.jpg" alt="Plant Guard Preview">
+        </div>
+        <div class="project-info">
+          <h3>Plant Guard</h3>
+          <p>A Figma design for a smart plant monitoring and care application.</p>
+          <a href="https://www.figma.com/design/3U1FB1X9exUrRMmNffGmfg/Plant-Guard?node-id=0-1&t=POXWMiZMoZLtl5Gq-1" target="_blank" class="project-link">View Design</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-preview">
+          <img src="/Assets/previews/colab-project.jpg" alt="Google Colab Project Preview">
+        </div>
+        <div class="project-info">
+          <h3>Google Colab Project</h3>
+          <p>A data science project implemented in Google Colab showcasing machine learning capabilities.</p>
+          <a href="https://colab.research.google.com/drive/1Ko6NcWUhURONCSAYbRxiWqvs3Yg_GCAH?usp=sharing" target="_blank" class="project-link">View Project</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-preview">
+          <img src="/Assets/previews/book-showcase.jpg" alt="Book Showcase Preview">
+        </div>
+        <div class="project-info">
+          <h3>Book Showcase</h3>
+          <p>An interactive web application showcasing Nicholas Sparks' books with detailed information.</p>
+          <a href="https://nicholas-sparks-book-showcase.netlify.app/" target="_blank" class="project-link">View Project</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-preview">
+          <img src="/Assets/previews/sentiment-dashboard.jpg" alt="Sentiment Dashboard Preview">
+        </div>
+        <div class="project-info">
+          <h3>Sentiment Dashboard</h3>
+          <p>A real-time sentiment analysis dashboard built with Streamlit for analyzing text data.</p>
+          <a href="https://devbybyron-sentiment-analysis-dashboard-app-wjrvks.streamlit.app/" target="_blank" class="project-link">View Project</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-preview">
+          <img src="/Assets/previews/resume-ai.jpg" alt="Resume AI Preview">
+        </div>
+        <div class="project-info">
+          <h3>Resume AI</h3>
+          <p>An AI-powered resume builder that helps users create professional resumes.</p>
+          <a href="https://app--resume-ai-8e76b487.base44.app" target="_blank" class="project-link">View Project</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-preview">
+          <img src="/Assets/previews/readeazy.jpg" alt="ReadEazy Preview">
+        </div>
+        <div class="project-info">
+          <h3>ReadEazy</h3>
+          <p>A web application that makes reading and comprehension easier through AI assistance.</p>
+          <a href="https://readeazy.netlify.app/" target="_blank" class="project-link">View Project</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -156,14 +377,14 @@
   <section id="hire" class="card green-bg">
     <h2>Hire Me</h2>
     <p>
-      With a strong foundation in IT technical support and hands-on experience developing AI-powered solutions, I bring a unique blend of practical
-      troubleshooting skills and innovative software development expertise. I understand both the technical challenges and user needs, allowing me to
-      create efficient, user-friendly tools that drive real value.
+      My journey from hands-on <strong>IT Technical Support</strong> to building <strong>AI-powered solutions</strong> has given me a unique superpower: the ability to see technology through the user's eyes. I don't just build things; I solve human problems.
     </p>
     <p>
-      I am committed to continuous learning and staying current with emerging technologies, particularly in AI and automation, to enhance workflows
-      and problem-solving approaches.
+      I am now channeling this user-centric mindset into <strong>UI/UX Design</strong>, where I craft intuitive and engaging digital experiences. My technical background in <strong>JavaScript, HTML, and CSS</strong> ensures my designs are not only beautiful but also practical and buildable. I am passionate about leveraging AI and automation to create smarter, more adaptive user interfaces that feel effortless.
     </p>
+  <p>
+  Let's connect and build something exceptional together.
+</p>
     <a href="/Luyanda Gamanye CV.pdf" class="btn download-cv-btn" download>
       <i class="fas fa-download"></i> Download CV
     </a>
@@ -213,6 +434,7 @@
 <script>
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
+  const header = document.querySelector('header');
 
   // Toggle nav visibility and accessibility state
   hamburger.addEventListener('click', () => {
@@ -226,6 +448,25 @@
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       hamburger.click();
+    }
+  });
+
+  // Add scroll event listener for header background
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('show') && 
+        !navLinks.contains(e.target) && 
+        !hamburger.contains(e.target)) {
+      navLinks.classList.remove('show');
+      hamburger.setAttribute('aria-expanded', 'false');
     }
   });
 </script>
