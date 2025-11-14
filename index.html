@@ -6,6 +6,117 @@
   <title>Luyanda Gamanye | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+  /* Adjust hero and sections spacing */
+  .home-section {
+    padding-top: 100px; /* Adjusted for header */
+    padding-bottom: 50px;
+  }
+  .card {
+    margin-top: 20px;
+    position: relative;
+  }
+
+  /* Carousel-style layout for certificates and projects */
+  .certificates-grid, .projects-grid {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 20px 60px;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .certificate-card, .project-card {
+    flex: 0 0 auto;
+    width: calc(33.333% - 2rem);
+    min-width: 300px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .certificate-card:hover, .project-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .certificate-preview img, .project-preview img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .certificate-info, .project-info {
+    padding: 1.5rem;
+  }
+
+  .certificate-info h3, .project-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    font-size: 1.25rem;
+  }
+
+  .certificate-info p, .project-info p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .btn, .project-link {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #004d00;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn:hover, .project-link:hover {
+    background: #339933;
+  }
+
+  /* Navigation arrows */
+  .nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #004d00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+    border: none;
+    transition: background 0.3s ease;
+  }
+
+  .nav-arrow:hover {
+    background: #339933;
+  }
+
+  .nav-arrow.prev {
+    left: 10px;
+  }
+
+  .nav-arrow.next {
+    right: 10px;
+  }
+
+  .nav-arrow i {
+    font-size: 20px;
+  }
+</style>
   <!-- ...existing code... -->
 </head>
 <body>
@@ -48,7 +159,7 @@
   <section id="home" class="home-section">
     <div class="home-container">
       <div class="home-text">
-        <h1>Welcome.</h1>
+        <h1>Luyanda Gamanye</h1>
         <p>
           I am a technologist and designer with a unique blend of skills in front-end development (JavaScript, HTML, CSS), AI, and IT support. This background allows me to approach UI/UX design with a rare combination of empathy, technical pragmatism, and a vision for intelligent systems. I specialize in creating intuitive, data-informed, and automated user experiences that are not only beautiful but also robust and user-focused from the ground up.
         <a href="#hire" class="btn hire-btn">Hire Me</a>
@@ -63,38 +174,194 @@
   <section id="about" class="card green-bg">
     <h2>About Me</h2>
     <p>
-      I'm <strong>Luyanda Gamaye</strong>, a problem-solver at heart. My unique blend of skills in IT Support, Software Development, and UI/UX Design allows me to create digital products that are not only technically sound but also genuinely user-friendly. I translate user needs into seamless and engaging experiences, ensuring the technology serves the human using it.
-    </p>
+      I am <strong>Luyanda Gamaye</strong>, a problem-solver dedicated to humanizing technology. My journey began in IT Support, where I developed deep empathy for user frustrations and a systematic approach to solving them. This foundation led me to Software Development, where I gained proficiency in <strong>HTML, CSS, and JavaScript</strong> to build practical solutions. Now, as a UI/UX Designer, I fuse these disciplines to create digital experiences that are not only visually compelling and intuitive but also technically feasible and robust.</p>
+
+<p>I am particularly passionate about leveraging <strong>AI and automation</strong> to create smarter, more adaptive interfaces, and I excel at building functional prototypes to validate concepts and ensure a seamless transition from design to development. My goal is to ensure technology serves the human using it, crafting products that are a genuine delight to interact with.</p>
   </section>
 
   <!-- Skills & Experience Section -->
-  <!-- Skills & Experience Section -->
   <section id="skills" class="card green-bg">
-    <h2>Skills & Experience:</h2>
-    <p><b>IT Technical Support & Hardware Troubleshooting:</b> Extensive experience in diagnosing and resolving hardware and software issues to maintain smooth IT operations.</p>
-    <p><b>Programming:</b> Proficient in Python and JavaScript for developing automation tools, AI applications, and software solutions.</p>
-    <p><b>AI & NLP:</b> Skilled in Natural Language Processing, Machine Learning, and chatbot development.</p>
-    <p><b>Automation:</b> Hands-on experience in creating automated workflows and intelligent systems.</p>
-    <p><b>Data Visualization:</b> Building dashboards and analysis tools for insights and decision-making.</p>
-    <h3>Professional Experience:</h3>
-    <p><b>Advanced Digital Associate:</b><br>
-    Capaciti — July 2025 to Present<br>
-    Supporting digital transformation initiatives by leveraging advanced technical skills to optimize business processes and improve service delivery.</p>
-    <p><b>Helpdesk Technician / Desktop Engineer (Practical Training):</b><br>
-    In2food — January 2025 to June 2025<br>
-    Provided technical support to end-users, diagnosing and resolving hardware and software issues. Installed, configured, and maintained desktop systems and peripherals, ensuring reliable IT infrastructure.</p>
-    <p><b>Remote IT Technical Support Learner:</b><br>
-    Preasignis — July 2024 to June 2025<br>
-    Completed a remote learnership focused on IT technical support, gaining practical experience in troubleshooting, user support, and IT operations.</p>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <i class="fas fa-tools"></i>
+        <h3>IT Technical Support</h3>
+        <p>Extensive experience in diagnosing and resolving hardware and software issues.</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-code"></i>
+        <h3>Programming</h3>
+        <p>I use HTML, CSS, and JavaScript to bring design concepts to life, building functional prototypes and ensuring a seamless bridge from idea to implementation.</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-robot"></i>
+        <h3>AI & NLP</h3>
+        <p>Skilled in Natural Language Processing and Machine Learning.</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-cogs"></i>
+        <h3>Automation</h3>
+        <p>Hands-on experience in creating automated workflows and intelligent systems.</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Data Visualization</h3>
+        <p>Building dashboards and analysis tools for insights and decision-making.</p>
+      </div>
+    </div>
   </section>
+  
+<section id="experience" class="card blue-bg">
+  <h2>Experience</h2>
+
+  <!-- Digital Associate -->
+  <div class="experience-entry">
+    <div class="experience-header">
+      <h3>Digital Associate – UI/UX Stream</h3>
+      <span class="badge">Software & Mobile Applications</span>
+      <span class="date">2025 – Present</span>
+    </div>
+
+    <div class="experience-meta">
+      <span class="company">🏢 Capaciti</span>
+      <span class="location">📍 Cape Town, South Africa</span>
+    </div>
+
+    <p class="description">
+      Working in the UI/UX stream, focusing on designing user-friendly interfaces and improving user experiences across digital products.
+    </p>
+
+    <h4>Key Achievements:</h4>
+    <ul>
+      <li>Conducted user research, wireframing, prototyping, and usability testing.</li>
+      <li>Collaborated on mobile and web app development in agile teams.</li>
+      <li>Gained hands-on experience in UI/UX methodologies and design principles.</li>
+    </ul>
+  </div>
+
+  <!-- Helpdesk Technician -->
+  <div class="experience-entry">
+    <div class="experience-header">
+      <h3>Helpdesk Technician (Hosted for Learnership)</h3>
+      <span class="badge">Technical Support</span>
+      <span class="date">Jan 2025 – Jun 2025</span>
+    </div>
+
+    <div class="experience-meta">
+      <span class="company">🏢 In2Food</span>
+      <span class="location">📍 Cape Town, South Africa</span>
+    </div>
+
+    <p class="description">
+      Supported IT operations as part of the Praesignis learnership, providing technical assistance across the organisation.
+    </p>
+
+    <h4>Key Achievements:</h4>
+    <ul>
+      <li>Resolved hardware, software, and network-related issues for end-users.</li>
+      <li>Logged, tracked, and escalated tickets using service desk systems.</li>
+      <li>Reduced downtime by troubleshooting and maintaining workstations.</li>
+    </ul>
+  </div>
+
+  <!-- IT Support Learnership -->
+  <div class="experience-entry">
+    <div class="experience-header">
+      <h3>IT Support Learnership</h3>
+      <span class="badge">IT Technical Support</span>
+      <span class="date">Jul 2024 – Jun 2025</span>
+    </div>
+
+    <div class="experience-meta">
+      <span class="company">🏢 Praesignis</span>
+      <span class="location">📍 Cape Town, South Africa</span>
+    </div>
+
+    <p class="description">
+      Completed a full-year learnership focused on systems support, operations, and IT service delivery.
+    </p>
+
+    <h4>Key Achievements:</h4>
+    <ul>
+      <li>Developed strong troubleshooting and customer support skills.</li>
+      <li>Learned IT infrastructure fundamentals and service delivery workflows.</li>
+      <li>Gained hands-on practical experience through placement at In2Food.</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  #experience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    gap: 30px;
+  }
+
+  .experience-entry {
+    max-width: 800px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+  }
+
+  .experience-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    background: #2e8b57;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  .date {
+    color: #555;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+
+  .experience-meta {
+    margin: 8px 0 15px;
+    display: flex;
+    gap: 20px;
+    font-size: 15px;
+    color: #444;
+  }
+
+  ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+
+  ul li {
+    margin-bottom: 8px;
+  }
+</style>
 
   <!-- Certificates Section -->
 <section id="certificates" class="card green-bg">
   <h2>Certificates</h2>
+  <button class="nav-arrow prev" onclick="scrollSection('certificates-grid', -1)">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="nav-arrow next" onclick="scrollSection('certificates-grid', 1)">
+    <i class="fas fa-chevron-right"></i>
+  </button>
   <div class="certificates-grid">
     <div class="certificate-card">
       <div class="certificate-preview">
-        <img src="/Assets/previews/ai-for-everyone.jpg" alt="AI For Everyone Certificate Preview">
+        <img src="/Assets/AI for Everyone-deeplearning.png" alt="AI For Everyone Certificate Preview">
       </div>
       <div class="certificate-info">
         <h3>AI For Everyone</h3>
@@ -106,7 +373,7 @@
 
     <div class="certificate-card">
       <div class="certificate-preview">
-        <img src="/Assets/previews/ai-essentials.jpg" alt="AI Essentials Certificate Preview">
+        <img src="/Assets/AI Essentials-Intel.png" alt="AI Essentials Certificate Preview">
       </div>
       <div class="certificate-info">
         <h3>AI Essentials</h3>
@@ -118,7 +385,7 @@
 
     <div class="certificate-card">
       <div class="certificate-preview">
-        <img src="/Assets/previews/gen-ai-google.jpg" alt="Generative AI Certificate Preview">
+        <img src="/Assets/Introduction Generative AI-Google Cloud.png" alt="Generative AI Certificate Preview">
       </div>
       <div class="certificate-info">
         <h3>Introduction To Generative AI</h3>
@@ -130,7 +397,7 @@
 
     <div class="certificate-card">
       <div class="certificate-preview">
-        <img src="/Assets/previews/ai-ibm.jpg" alt="IBM AI Certificate Preview">
+        <img src="/Assets/Introduction to AI-IBM.png" alt="IBM AI Certificate Preview">
       </div>
       <div class="certificate-info">
         <h3>Introduction to Artificial Intelligence(AI)</h3>
@@ -142,7 +409,7 @@
 
     <div class="certificate-card">
       <div class="certificate-preview">
-        <img src="/Assets/previews/praesignis.jpg" alt="Praesignis Certificate Preview">
+        <img src="/Assets/PCL.png" alt="Praesignis Certificate Preview">
       </div>
       <div class="certificate-info">
         <h3>Praesignis Confirmation Letter</h3>
@@ -154,7 +421,7 @@
 
     <div class="certificate-card">
       <div class="certificate-preview">
-        <img src="/Assets/previews/capaciti-gen-ai.jpg" alt="Capaciti Gen AI Certificate Preview">
+        <img src="/Assets/Introduction to AI and Generative AI- CAPACITI.png" alt="Capaciti Gen AI Certificate Preview">
       </div>
       <div class="certificate-info">
         <h3>Introduction to AI and Generative AI</h3>
@@ -166,7 +433,7 @@
 
     <div class="certificate-card">
       <div class="certificate-preview">
-        <img src="/Assets/previews/capaciti-ai.jpg" alt="Capaciti AI Certificate Preview">
+        <img src="/Assets/AI For Everyone- CAPACITI.png" alt="Capaciti AI Certificate Preview">
       </div>
       <div class="certificate-info">
         <h3>AI For Everyone</h3>
@@ -178,7 +445,7 @@
 
     <div class="certificate-card">
       <div class="certificate-preview">
-        <img src="/Assets/previews/gen-ai-llm.jpg" alt="Generative AI with LLM Certificate Preview">
+        <img src="/Assets/Generative AI with LLM-AWS - Copy.png" alt="Generative AI with LLM Certificate Preview">
       </div>
       <div class="certificate-info">
         <h3>Generative AI With Large Language Models</h3>
@@ -192,10 +459,16 @@
   <!-- Projects Section -->
   <section id="projects" class="card green-bg">
     <h2>Projects</h2>
+    <button class="nav-arrow prev" onclick="scrollSection('projects-grid', -1)">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="nav-arrow next" onclick="scrollSection('projects-grid', 1)">
+      <i class="fas fa-chevron-right"></i>
+    </button>
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-preview">
-          <img src="/Assets/previews/ai-chatbot.jpg" alt="AI Chatbot Preview">
+          <img src="/Assets/AI chatbot.png" alt="AI Chatbot Preview">
         </div>
         <div class="project-info">
           <h3>AI Chatbot</h3>
@@ -206,7 +479,7 @@
 
       <div class="project-card">
         <div class="project-preview">
-          <img src="/Assets/previews/plant-guard.jpg" alt="Plant Guard Preview">
+          <img src="/Assets/Plant Gaurd.png" alt="Plant Guard Preview">
         </div>
         <div class="project-info">
           <h3>Plant Guard</h3>
@@ -217,7 +490,7 @@
 
       <div class="project-card">
         <div class="project-preview">
-          <img src="/Assets/previews/colab-project.jpg" alt="Google Colab Project Preview">
+          <img src="/Assets/Google Collab.png" alt="Google Colab Project Preview">
         </div>
         <div class="project-info">
           <h3>Google Colab Project</h3>
@@ -228,7 +501,7 @@
 
       <div class="project-card">
         <div class="project-preview">
-          <img src="/Assets/previews/book-showcase.jpg" alt="Book Showcase Preview">
+          <img src="/Assets/Book Portfolio.png" alt="Book Showcase Preview">
         </div>
         <div class="project-info">
           <h3>Book Showcase</h3>
@@ -239,7 +512,7 @@
 
       <div class="project-card">
         <div class="project-preview">
-          <img src="/Assets/previews/sentiment-dashboard.jpg" alt="Sentiment Dashboard Preview">
+          <img src="/Assets/Dashboard.png" alt="Sentiment Dashboard Preview">
         </div>
         <div class="project-info">
           <h3>Sentiment Dashboard</h3>
@@ -250,7 +523,7 @@
 
       <div class="project-card">
         <div class="project-preview">
-          <img src="/Assets/previews/resume-ai.jpg" alt="Resume AI Preview">
+          <img src="/Assets/Resume AI.png" alt="Resume AI Preview">
         </div>
         <div class="project-info">
           <h3>Resume AI</h3>
@@ -261,7 +534,7 @@
 
       <div class="project-card">
         <div class="project-preview">
-          <img src="/Assets/previews/readeazy.jpg" alt="ReadEazy Preview">
+          <img src="/Assets/Read Easy.png" alt="ReadEazy Preview">
         </div>
         <div class="project-info">
           <h3>ReadEazy</h3>
@@ -291,34 +564,64 @@
 
   <!-- Contact Section -->
   <section id="contact" class="contact-section">
-    <h2>Get in Touch</h2>
+    <h2 class="section-title">Contact Me</h2>
+    <p class="section-subtitle">I'm always open to discussing new opportunities, creative projects, or potential collaborations.</p>
+    
     <div class="contact-container">
       <div class="contact-info">
-        <p><i class="fa fa-envelope"></i> <strong>Email:</strong> <span>luyandagamanye@gmail.com</span></p>
-        <p><i class="fa fa-phone"></i> <strong>Phone/Whatsapp:</strong> <span>(+27) 67 806 9530</span></p>
-        <p><i class="fa fa-map-marker"></i> <strong>Location:</strong> <span>South Africa</span></p>
-        <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/luyanda-gamanye-725773270/">View profile</a></p>
-        <p><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/Luyanda-web09">Luyanda</a></p>
-      </div>
-      <form class="contact-form" action="https://formspree.io/f/xkgvynrj" method="POST">
-        <div class="form-row">
-          <div>
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first-name" required>
+        <h3>Get in Touch</h3>
+        <p class="contact-desc">Don't hesitate to reach out if you want to collaborate, have questions, or just want to connect!</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <strong>Email:</strong>
+            <span><a href="mailto:luyandagamanye@gmail.com">luyandagamanye@gmail.com</a></span>
           </div>
-          <div>
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="last-name" required>
+          <div class="contact-item">
+            <strong>Phone:</strong>
+            <span>(+27) 67 806 9530</span>
+          </div>
+          <div class="contact-item">
+            <strong>Location:</strong>
+            <span>Cape Town, South Africa</span>
           </div>
         </div>
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required>
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
-      </form>
+
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/luyanda-gamanye-725773270/" class="social-btn" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/Luyanda-web09" class="social-btn" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:luyandagamanye@gmail.com" class="social-btn" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send Message</h3>
+        <form action="https://formspree.io/f/xkgvynrj" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Email Address" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" placeholder="Your message..." rows="6" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            Send Message
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -368,6 +671,16 @@
       hamburger.setAttribute('aria-expanded', 'false');
     }
   });
+
+  // Carousel functionality
+  function scrollSection(sectionId, direction) {
+    const container = document.querySelector(`.${sectionId}`);
+    const cardWidth = container.querySelector('.certificate-card, .project-card').offsetWidth + 32; // Width + gap
+    container.scrollBy({
+      left: cardWidth * direction,
+      behavior: 'smooth'
+    });
+  }
 </script>
 </body>
 </html>
