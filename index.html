@@ -4,156 +4,791 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luyanda Gamanye | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-  /* Adjust hero and sections spacing */
-  .home-section {
-    padding-top: 100px; /* Adjusted for header */
-    padding-bottom: 50px;
-  }
-  .card {
-    margin-top: 20px;
-    position: relative;
-  }
-
-  /* Carousel-style layout for certificates and projects */
-  .certificates-grid, .projects-grid {
-    display: flex;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    padding: 20px 60px;
-    gap: 2rem;
-    position: relative;
-  }
-
-  .certificate-card, .project-card {
-    flex: 0 0 auto;
-    width: calc(33.333% - 2rem);
-    min-width: 300px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-  }
-
-  .certificate-card:hover, .project-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .certificate-preview img, .project-preview img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-
-  .certificate-info, .project-info {
-    padding: 1.5rem;
-  }
-
-  .certificate-info h3, .project-info h3 {
-    margin: 0 0 0.5rem 0;
-    color: #333;
-    font-size: 1.25rem;
-  }
-
-  .certificate-info p, .project-info p {
-    color: #666;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-  }
-
-  .btn, .project-link {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: #004d00;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background 0.3s ease;
-    width: 100%;
-    text-align: center;
-  }
-
-  .btn:hover, .project-link:hover {
-    background: #339933;
-  }
-
-  /* Navigation arrows */
-  .nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background: #004d00;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    cursor: pointer;
-    z-index: 2;
-    border: none;
-    transition: background 0.3s ease;
-  }
-
-  .nav-arrow:hover {
-    background: #339933;
-  }
-
-  .nav-arrow.prev {
-    left: 10px;
-  }
-
-  .nav-arrow.next {
-    right: 10px;
-  }
-
-  .nav-arrow i {
-    font-size: 20px;
-  }
-</style>
-  <!-- ...existing code... -->
+    /* Base Styles */
+    :root {
+      --primary-color: #004d00;
+      --primary-light: #339933;
+      --primary-lighter: #66cc66;
+      --secondary-color: #2e8b57;
+      --accent-color: #32cd32;
+      --text-dark: #333;
+      --text-light: #666;
+      --background-light: #f9f9f9;
+      --white: #ffffff;
+      --light-green: #e8f5e9;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--background-light);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4 {
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style-position: inside;
+    }
+    
+    /* Layout Components */
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 1200px;
+      width: 90%;
+    }
+    
+    .green-bg {
+      background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);
+      border-left: 5px solid var(--primary-color);
+    }
+    
+    .blue-bg {
+      background: var(--white);
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary-color);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    
+    .btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    
+    header.scrolled {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 21px;
+      justify-content: space-between;
+    }
+    
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: var(--text-dark);
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+    
+    /* Hero Section */
+    .home-section {
+      padding: 120px 5% 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);
+    }
+    
+    .home-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      width: 100%;
+      gap: 3rem;
+    }
+    
+    .home-text {
+      flex: 1;
+    }
+    
+    .home-text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    
+    .home-text p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+    }
+    
+    .hire-btn {
+      margin-top: 1rem;
+      margin-right: 1rem;
+    }
+    
+    .social-links-home {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .social-btn-home {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      color: var(--white);
+      border-radius: 50%;
+      transition: var(--transition);
+      font-size: 1.2rem;
+    }
+    
+    .social-btn-home:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+    
+    .home-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .home-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+    
+    /* About Section */
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    .about-text {
+      flex: 2;
+    }
+    
+    .about-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .about-image img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+    
+    /* Skills Section - New Unique Design */
+    .skills-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .skill-category {
+      margin-bottom: 2rem;
+    }
+    
+    .skill-category h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .skill-item {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border-left: 4px solid var(--primary-color);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .skill-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    }
+    
+    .skill-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .skill-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .skill-header i {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-right: 1rem;
+      width: 40px;
+    }
+    
+    .skill-header h4 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    
+    .skill-bar {
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+      border-radius: 4px;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+    
+    /* Experience Section */
+    .experience-entry {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .experience-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .badge {
+      background: var(--secondary-color);
+      color: var(--white);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .date {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .experience-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    /* Carousel Sections */
+    .carousel-container {
+      position: relative;
+      margin: 2rem 0;
+    }
+    
+    .certificates-grid, .projects-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 1rem 0;
+      gap: 2rem;
+      scrollbar-width: none; /* Firefox */
+    }
+    
+    .certificates-grid::-webkit-scrollbar, 
+    .projects-grid::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Edge */
+    }
+    
+    .certificate-card, .project-card {
+      flex: 0 0 auto;
+      width: 300px;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid var(--light-green);
+    }
+    
+    .certificate-card:hover, .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .certificate-preview img, .project-preview img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .certificate-info, .project-info {
+      padding: 1.5rem;
+    }
+    
+    .certificate-info h3, .project-info h3 {
+      margin: 0 0 0.5rem 0;
+      color: var(--text-dark);
+      font-size: 1.25rem;
+    }
+    
+    .certificate-info p, .project-info p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      cursor: pointer;
+      z-index: 2;
+      border: none;
+      transition: var(--transition);
+    }
+    
+    .nav-arrow:hover {
+      background: var(--primary-light);
+    }
+    
+    .nav-arrow.prev {
+      left: -20px;
+    }
+    
+    .nav-arrow.next {
+      right: -20px;
+    }
+    
+    .nav-arrow i {
+      font-size: 20px;
+    }
+    
+    /* Hire Me Section - Centered Button */
+    .hire-me-content {
+      text-align: center;
+    }
+    
+    .download-cv-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      padding: 5rem 5%;
+      background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      color: var(--text-light);
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .contact-info h3, .contact-form h3 {
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+    
+    .contact-desc {
+      margin-bottom: 2rem;
+      color: var(--text-light);
+    }
+    
+    .contact-details {
+      margin-bottom: 2rem;
+    }
+    
+    .contact-item {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .contact-item strong {
+      margin-bottom: 0.3rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      color: var(--white);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    
+    .social-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(0, 77, 0, 0.1);
+    }
+    
+    .submit-btn {
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .submit-btn:hover {
+      background: var(--primary-light);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      z-index: 999;
+    }
+    
+    .back-to-top:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .home-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .home-text h1 {
+        font-size: 2.5rem;
+      }
+      
+      .about-container {
+        flex-direction: column;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-arrow {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: var(--transition);
+        z-index: 999;
+      }
+      
+      .nav-links.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      .home-text h1 {
+        font-size: 2rem;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .card {
+        padding: 1.5rem;
+      }
+      
+      .home-section {
+        padding: 100px 1rem 60px;
+      }
+      
+      .home-text h1 {
+        font-size: 1.8rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .experience-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Decorative animated background blobs (pure CSS) -->
-  <div class="bg-blobs" aria-hidden="true">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-    <div class="blob b3"></div>
-    <div class="blob b4"></div>
-  </div>
-<!-- Navigation -->
-<header>
-  <nav class="navbar">
-    <div class="logo">Luyanda Gamanye</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills & Experience</a></li>
-      <li><a href="#certificates">Certificates</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#hire">Hire Me</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-   <div
-  class="hamburger"
-  id="hamburger"
-  role="button"
-  aria-label="Menu"
-  aria-expanded="false"
-  tabindex="0"
->
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-  </nav>
-</header>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Luyanda Gamanye</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills & Experience</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#hire">Hire Me</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div
+        class="hamburger"
+        id="hamburger"
+        role="button"
+        aria-label="Menu"
+        aria-expanded="false"
+        tabindex="0"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
 
   <!-- Home Section -->
   <section id="home" class="home-section">
@@ -162,7 +797,18 @@
         <h1>Luyanda Gamanye</h1>
         <p>
           I am a technologist and designer with a unique blend of skills in front-end development (JavaScript, HTML, CSS), AI, and IT support. This background allows me to approach UI/UX design with a rare combination of empathy, technical pragmatism, and a vision for intelligent systems. I specialize in creating intuitive, data-informed, and automated user experiences that are not only beautiful but also robust and user-focused from the ground up.
+        </p>
         <a href="#hire" class="btn hire-btn">Hire Me</a>
+        <a href="#contact" class="btn">Get In Touch</a>
+        
+        <div class="social-links-home">
+          <a href="https://www.linkedin.com/in/luyanda-gamanye-725773270/" class="social-btn-home" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/Luyanda-web09" class="social-btn-home" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
       </div>
       <div class="home-image">
         <img src="profile.jpg" alt="Luyanda Gamanye" />
@@ -173,393 +819,311 @@
   <!-- About Section -->
   <section id="about" class="card green-bg">
     <h2>About Me</h2>
-    <p>
-      I am <strong>Luyanda Gamaye</strong>, a problem-solver dedicated to humanizing technology. My journey began in IT Support, where I developed deep empathy for user frustrations and a systematic approach to solving them. This foundation led me to Software Development, where I gained proficiency in <strong>HTML, CSS, and JavaScript</strong> to build practical solutions. Now, as a UI/UX Designer, I fuse these disciplines to create digital experiences that are not only visually compelling and intuitive but also technically feasible and robust.</p>
-
-<p>I am particularly passionate about leveraging <strong>AI and automation</strong> to create smarter, more adaptive interfaces, and I excel at building functional prototypes to validate concepts and ensure a seamless transition from design to development. My goal is to ensure technology serves the human using it, crafting products that are a genuine delight to interact with.</p>
+    <div class="about-container">
+      <div class="about-text">
+        <p>
+          I am <strong>Luyanda Gamaye</strong>, a problem-solver dedicated to humanizing technology. My journey began in IT Support, where I developed deep empathy for user frustrations and a systematic approach to solving them. This foundation led me to Software Development, where I gained proficiency in <strong>HTML, CSS, and JavaScript</strong> to build practical solutions. Now, as a UI/UX Designer, I fuse these disciplines to create digital experiences that are not only visually compelling and intuitive but also technically feasible and robust.
+        </p>
+        <p>
+          I am particularly passionate about leveraging <strong>AI and automation</strong> to create smarter, more adaptive interfaces, and I excel at building functional prototypes to validate concepts and ensure a seamless transition from design to development. My goal is to ensure technology serves the human using it, crafting products that are a genuine delight to interact with.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="Luyanda.jpg" alt="Luyanda Gamanye" />
+      </div>
+    </div>
   </section>
 
-  <!-- Skills & Experience Section -->
+  <!-- Skills Section -->
   <section id="skills" class="card green-bg">
     <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <i class="fas fa-tools"></i>
-        <h3>IT Technical Support</h3>
-        <p>Extensive experience in diagnosing and resolving hardware and software issues.</p>
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3>Technical Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-header">
+              <i class="fas fa-tools"></i>
+              <h4>IT Technical Support</h4>
+            </div>
+            <p>Extensive experience in diagnosing and resolving hardware and software issues.</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="90"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-header">
+              <i class="fas fa-code"></i>
+              <h4>Programming</h4>
+            </div>
+            <p>I use HTML, CSS, and JavaScript to bring design concepts to life, building functional prototypes.</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="85"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-header">
+              <i class="fas fa-robot"></i>
+              <h4>AI & NLP</h4>
+            </div>
+            <p>Skilled in Natural Language Processing and Machine Learning.</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="80"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="skill-card">
-        <i class="fas fa-code"></i>
-        <h3>Programming</h3>
-        <p>I use HTML, CSS, and JavaScript to bring design concepts to life, building functional prototypes and ensuring a seamless bridge from idea to implementation.</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-robot"></i>
-        <h3>AI & NLP</h3>
-        <p>Skilled in Natural Language Processing and Machine Learning.</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-cogs"></i>
-        <h3>Automation</h3>
-        <p>Hands-on experience in creating automated workflows and intelligent systems.</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-chart-line"></i>
-        <h3>Data Visualization</h3>
-        <p>Building dashboards and analysis tools for insights and decision-making.</p>
+      
+      <div class="skill-category">
+        <h3>Design & Development</h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-header">
+              <i class="fas fa-cogs"></i>
+              <h4>Automation</h4>
+            </div>
+            <p>Hands-on experience in creating automated workflows and intelligent systems.</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="75"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-header">
+              <i class="fas fa-chart-line"></i>
+              <h4>Data Visualization</h4>
+            </div>
+            <p>Building dashboards and analysis tools for insights and decision-making.</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="70"></div>
+            </div>
+          </div>
+          
+          <div class="skill-item">
+            <div class="skill-header">
+              <i class="fas fa-palette"></i>
+              <h4>UI/UX Design</h4>
+            </div>
+            <p>Creating intuitive and engaging digital experiences with a user-centric approach.</p>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="85"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   
-<section id="experience" class="card blue-bg">
-  <h2>Experience</h2>
+  <!-- Experience Section -->
+  <section id="experience" class="card blue-bg">
+    <h2>Experience</h2>
 
-  <!-- Digital Associate -->
-  <div class="experience-entry">
-    <div class="experience-header">
-      <h3>Digital Associate – UI/UX Stream</h3>
-      <span class="badge">Software & Mobile Applications</span>
-      <span class="date">2025 – Present</span>
+    <!-- Digital Associate -->
+    <div class="experience-entry">
+      <div class="experience-header">
+        <h3>Digital Associate – UI/UX Stream</h3>
+        <span class="badge">Software & Mobile Applications</span>
+        <span class="date">2025 – Present</span>
+      </div>
+
+      <div class="experience-meta">
+        <span class="company">🏢 Capaciti</span>
+        <span class="location">📍 Cape Town, South Africa</span>
+      </div>
+
+      <p class="description">
+        Working in the UI/UX stream, focusing on designing user-friendly interfaces and improving user experiences across digital products.
+      </p>
+
+      <h4>Key Achievements:</h4>
+      <ul>
+        <li>Conducted user research, wireframing, prototyping, and usability testing.</li>
+        <li>Collaborated on mobile and web app development in agile teams.</li>
+        <li>Gained hands-on experience in UI/UX methodologies and design principles.</li>
+      </ul>
     </div>
 
-    <div class="experience-meta">
-      <span class="company">🏢 Capaciti</span>
-      <span class="location">📍 Cape Town, South Africa</span>
+    <!-- Helpdesk Technician -->
+    <div class="experience-entry">
+      <div class="experience-header">
+        <h3>Helpdesk Technician (Hosted for Learnership)</h3>
+        <span class="badge">Technical Support</span>
+        <span class="date">Jan 2025 – Jun 2025</span>
+      </div>
+
+      <div class="experience-meta">
+        <span class="company">🏢 In2Food</span>
+        <span class="location">📍 Cape Town, South Africa</span>
+      </div>
+
+      <p class="description">
+        Supported IT operations as part of the Praesignis learnership, providing technical assistance across the organisation.
+      </p>
+
+      <h4>Key Achievements:</h4>
+      <ul>
+        <li>Resolved hardware, software, and network-related issues for end-users.</li>
+        <li>Logged, tracked, and escalated tickets using service desk systems.</li>
+        <li>Reduced downtime by troubleshooting and maintaining workstations.</li>
+      </ul>
     </div>
 
-    <p class="description">
-      Working in the UI/UX stream, focusing on designing user-friendly interfaces and improving user experiences across digital products.
-    </p>
+    <!-- IT Support Learnership -->
+    <div class="experience-entry">
+      <div class="experience-header">
+        <h3>IT Support Learnership</h3>
+        <span class="badge">IT Technical Support</span>
+        <span class="date">Jul 2024 – Jun 2025</span>
+      </div>
 
-    <h4>Key Achievements:</h4>
-    <ul>
-      <li>Conducted user research, wireframing, prototyping, and usability testing.</li>
-      <li>Collaborated on mobile and web app development in agile teams.</li>
-      <li>Gained hands-on experience in UI/UX methodologies and design principles.</li>
-    </ul>
-  </div>
+      <div class="experience-meta">
+        <span class="company">🏢 Praesignis</span>
+        <span class="location">📍 Cape Town, South Africa</span>
+      </div>
 
-  <!-- Helpdesk Technician -->
-  <div class="experience-entry">
-    <div class="experience-header">
-      <h3>Helpdesk Technician (Hosted for Learnership)</h3>
-      <span class="badge">Technical Support</span>
-      <span class="date">Jan 2025 – Jun 2025</span>
+      <p class="description">
+        Completed a full-year learnership focused on systems support, operations, and IT service delivery.
+      </p>
+
+      <h4>Key Achievements:</h4>
+      <ul>
+        <li>Developed strong troubleshooting and customer support skills.</li>
+        <li>Learned IT infrastructure fundamentals and service delivery workflows.</li>
+        <li>Gained hands-on practical experience through placement at In2Food.</li>
+      </ul>
     </div>
-
-    <div class="experience-meta">
-      <span class="company">🏢 In2Food</span>
-      <span class="location">📍 Cape Town, South Africa</span>
-    </div>
-
-    <p class="description">
-      Supported IT operations as part of the Praesignis learnership, providing technical assistance across the organisation.
-    </p>
-
-    <h4>Key Achievements:</h4>
-    <ul>
-      <li>Resolved hardware, software, and network-related issues for end-users.</li>
-      <li>Logged, tracked, and escalated tickets using service desk systems.</li>
-      <li>Reduced downtime by troubleshooting and maintaining workstations.</li>
-    </ul>
-  </div>
-
-  <!-- IT Support Learnership -->
-  <div class="experience-entry">
-    <div class="experience-header">
-      <h3>IT Support Learnership</h3>
-      <span class="badge">IT Technical Support</span>
-      <span class="date">Jul 2024 – Jun 2025</span>
-    </div>
-
-    <div class="experience-meta">
-      <span class="company">🏢 Praesignis</span>
-      <span class="location">📍 Cape Town, South Africa</span>
-    </div>
-
-    <p class="description">
-      Completed a full-year learnership focused on systems support, operations, and IT service delivery.
-    </p>
-
-    <h4>Key Achievements:</h4>
-    <ul>
-      <li>Developed strong troubleshooting and customer support skills.</li>
-      <li>Learned IT infrastructure fundamentals and service delivery workflows.</li>
-      <li>Gained hands-on practical experience through placement at In2Food.</li>
-    </ul>
-  </div>
-</section>
-
-<style>
-  #experience {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
-    width: 100%;
-    gap: 30px;
-  }
-
-  .experience-entry {
-    max-width: 800px;
-    background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    margin-bottom: 20px;
-  }
-
-  .experience-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .badge {
-    background: #2e8b57;
-    color: #fff;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-  }
-
-  .date {
-    color: #555;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-  }
-
-  .experience-meta {
-    margin: 8px 0 15px;
-    display: flex;
-    gap: 20px;
-    font-size: 15px;
-    color: #444;
-  }
-
-  ul {
-    margin-top: 10px;
-    padding-left: 20px;
-  }
-
-  ul li {
-    margin-bottom: 8px;
-  }
-</style>
+  </section>
 
   <!-- Certificates Section -->
-<section id="certificates" class="card green-bg">
-  <h2>Certificates</h2>
-  <button class="nav-arrow prev" onclick="scrollSection('certificates-grid', -1)">
-    <i class="fas fa-chevron-left"></i>
-  </button>
-  <button class="nav-arrow next" onclick="scrollSection('certificates-grid', 1)">
-    <i class="fas fa-chevron-right"></i>
-  </button>
-  <div class="certificates-grid">
-    <div class="certificate-card">
-      <div class="certificate-preview">
-        <img src="/Assets/AI for Everyone-deeplearning.png" alt="AI For Everyone Certificate Preview">
-      </div>
-      <div class="certificate-info">
-        <h3>AI For Everyone</h3>
-        <p>Issued by: Coursera/Deep Learning.AI</p>
-        <p>Date: July 2025</p>
-        <a href="/Assets/Coursera AI for Everyone.pdf" target="_blank" class="btn">View Certificate</a>
-      </div>
-    </div>
-
-    <div class="certificate-card">
-      <div class="certificate-preview">
-        <img src="/Assets/AI Essentials-Intel.png" alt="AI Essentials Certificate Preview">
-      </div>
-      <div class="certificate-info">
-        <h3>AI Essentials</h3>
-        <p>Issued by: Coursera/Intel</p>
-        <p>Date: Aug 2025</p>
-        <a href="/Assets/Coursera DEMD2QUIR2N3.pdf" target="_blank" class="btn">View Certificate</a>
-      </div>
-    </div>
-
-    <div class="certificate-card">
-      <div class="certificate-preview">
-        <img src="/Assets/Introduction Generative AI-Google Cloud.png" alt="Generative AI Certificate Preview">
-      </div>
-      <div class="certificate-info">
-        <h3>Introduction To Generative AI</h3>
-        <p>Issued by: Coursera/Google Cloud</p>
-        <p>Date: Aug 2025</p>
-        <a href="/Assets/Coursera KDZN6HJI93DE.pdf" target="_blank" class="btn">View Certificate</a>
-      </div>
-    </div>
-
-    <div class="certificate-card">
-      <div class="certificate-preview">
-        <img src="/Assets/Introduction to AI-IBM.png" alt="IBM AI Certificate Preview">
-      </div>
-      <div class="certificate-info">
-        <h3>Introduction to Artificial Intelligence(AI)</h3>
-        <p>Issued by: Coursera/IBM</p>
-        <p>Date: Aug 2025</p>
-        <a href="/Assets/Coursera ZL28OBJLW4ME.pdf" target="_blank" class="btn">View Certificate</a>
-      </div>
-    </div>
-
-    <div class="certificate-card">
-      <div class="certificate-preview">
-        <img src="/Assets/PCL.png" alt="Praesignis Certificate Preview">
-      </div>
-      <div class="certificate-info">
-        <h3>Praesignis Confirmation Letter</h3>
-        <p>Issued by: Praesignis</p>
-        <p>Date: July 2025</p>
-        <a href="/Assets/Praesignis Confirmation Letter-Luyanda.pdf" target="_blank" class="btn">View Certificate</a>
-      </div>
-    </div>
-
-    <div class="certificate-card">
-      <div class="certificate-preview">
-        <img src="/Assets/Introduction to AI and Generative AI- CAPACITI.png" alt="Capaciti Gen AI Certificate Preview">
-      </div>
-      <div class="certificate-info">
-        <h3>Introduction to AI and Generative AI</h3>
-        <p>Issued by: CAPACITI</p>
-        <p>Date: Aug 2025</p>
-        <a href="/Assets/Luyanda Gamanye-210297833.pdf" target="_blank" class="btn">View Certificate</a>
-      </div>
-    </div>
-
-    <div class="certificate-card">
-      <div class="certificate-preview">
-        <img src="/Assets/AI For Everyone- CAPACITI.png" alt="Capaciti AI Certificate Preview">
-      </div>
-      <div class="certificate-info">
-        <h3>AI For Everyone</h3>
-        <p>Issued by: CAPACITI</p>
-        <p>Date: Aug 2025</p>
-        <a href="/Assets/Luyanda Gamanye-210264515.pdf" target="_blank" class="btn">View Certificate</a>
-      </div>
-    </div>
-
-    <div class="certificate-card">
-      <div class="certificate-preview">
-        <img src="/Assets/Generative AI with LLM-AWS - Copy.png" alt="Generative AI with LLM Certificate Preview">
-      </div>
-      <div class="certificate-info">
-        <h3>Generative AI With Large Language Models</h3>
-        <p>Issued by: Coursera/AWS/Deep Learning.AI</p>
-        <p>Date: Sep 2025</p>
-        <a href="/Assets/Coursera CSA5IZFCDCZ0.pdf" target="_blank" class="btn">View Certificate</a>
-      </div>
-    </div>
-  </div>
-</section>
-  <!-- Projects Section -->
-  <section id="projects" class="card green-bg">
-    <h2>Projects</h2>
-    <button class="nav-arrow prev" onclick="scrollSection('projects-grid', -1)">
-      <i class="fas fa-chevron-left"></i>
-    </button>
-    <button class="nav-arrow next" onclick="scrollSection('projects-grid', 1)">
-      <i class="fas fa-chevron-right"></i>
-    </button>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-preview">
-          <img src="/Assets/AI chatbot.png" alt="AI Chatbot Preview">
+  <section id="certificates" class="card green-bg">
+    <h2>Certificates</h2>
+    <div class="carousel-container">
+      <button class="nav-arrow prev" onclick="scrollSection('certificates-grid', -1)" aria-label="Previous certificates">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="nav-arrow next" onclick="scrollSection('certificates-grid', 1)" aria-label="Next certificates">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="certificates-grid" id="certificates-grid">
+        <!-- Certificate cards remain the same as before -->
+        <div class="certificate-card">
+          <div class="certificate-preview">
+            <img src="/Assets/AI for Everyone-deeplearning.png" alt="AI For Everyone Certificate Preview">
+          </div>
+          <div class="certificate-info">
+            <h3>AI For Everyone</h3>
+            <p>Issued by: Coursera/Deep Learning.AI</p>
+            <p>Date: July 2025</p>
+            <a href="/Assets/Coursera AI for Everyone.pdf" target="_blank" class="btn">View Certificate</a>
+          </div>
         </div>
-        <div class="project-info">
-          <h3>AI Chatbot</h3>
-          <p>An intelligent chatbot powered by AI that can engage in natural conversations and assist users with various tasks.</p>
-          <a href="https://ai-chatbot-a660e3.zapier.app" target="_blank" class="project-link">View Project</a>
-        </div>
-      </div>
 
-      <div class="project-card">
-        <div class="project-preview">
-          <img src="/Assets/Plant Gaurd.png" alt="Plant Guard Preview">
+        <div class="certificate-card">
+          <div class="certificate-preview">
+            <img src="/Assets/AI Essentials-Intel.png" alt="AI Essentials Certificate Preview">
+          </div>
+          <div class="certificate-info">
+            <h3>AI Essentials</h3>
+            <p>Issued by: Coursera/Intel</p>
+            <p>Date: Aug 2025</p>
+            <a href="/Assets/Coursera DEMD2QUIR2N3.pdf" target="_blank" class="btn">View Certificate</a>
+          </div>
         </div>
-        <div class="project-info">
-          <h3>Plant Guard</h3>
-          <p>A Figma design for a smart plant monitoring and care application.</p>
-          <a href="https://www.figma.com/design/3U1FB1X9exUrRMmNffGmfg/Plant-Guard?node-id=0-1&t=POXWMiZMoZLtl5Gq-1" target="_blank" class="project-link">View Design</a>
-        </div>
-      </div>
 
-      <div class="project-card">
-        <div class="project-preview">
-          <img src="/Assets/Google Collab.png" alt="Google Colab Project Preview">
+        <div class="certificate-card">
+          <div class="certificate-preview">
+            <img src="/Assets/Introduction Generative AI-Google Cloud.png" alt="Generative AI Certificate Preview">
+          </div>
+          <div class="certificate-info">
+            <h3>Introduction To Generative AI</h3>
+            <p>Issued by: Coursera/Google Cloud</p>
+            <p>Date: Aug 2025</p>
+            <a href="/Assets/Coursera KDZN6HJI93DE.pdf" target="_blank" class="btn">View Certificate</a>
+          </div>
         </div>
-        <div class="project-info">
-          <h3>Google Colab Project</h3>
-          <p>A data science project implemented in Google Colab showcasing machine learning capabilities.</p>
-          <a href="https://colab.research.google.com/drive/1Ko6NcWUhURONCSAYbRxiWqvs3Yg_GCAH?usp=sharing" target="_blank" class="project-link">View Project</a>
-        </div>
-      </div>
 
-      <div class="project-card">
-        <div class="project-preview">
-          <img src="/Assets/Book Portfolio.png" alt="Book Showcase Preview">
-        </div>
-        <div class="project-info">
-          <h3>Book Showcase</h3>
-          <p>An interactive web application showcasing Nicholas Sparks' books with detailed information.</p>
-          <a href="https://nicholas-sparks-book-showcase.netlify.app/" target="_blank" class="project-link">View Project</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-preview">
-          <img src="/Assets/Dashboard.png" alt="Sentiment Dashboard Preview">
-        </div>
-        <div class="project-info">
-          <h3>Sentiment Dashboard</h3>
-          <p>A real-time sentiment analysis dashboard built with Streamlit for analyzing text data.</p>
-          <a href="https://devbybyron-sentiment-analysis-dashboard-app-wjrvks.streamlit.app/" target="_blank" class="project-link">View Project</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-preview">
-          <img src="/Assets/Resume AI.png" alt="Resume AI Preview">
-        </div>
-        <div class="project-info">
-          <h3>Resume AI</h3>
-          <p>An AI-powered resume builder that helps users create professional resumes.</p>
-          <a href="https://app--resume-ai-8e76b487.base44.app" target="_blank" class="project-link">View Project</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-preview">
-          <img src="/Assets/Read Easy.png" alt="ReadEazy Preview">
-        </div>
-        <div class="project-info">
-          <h3>ReadEazy</h3>
-          <p>A web application that makes reading and comprehension easier through AI assistance.</p>
-          <a href="https://readeazy.netlify.app/" target="_blank" class="project-link">View Project</a>
+        <div class="certificate-card">
+          <div class="certificate-preview">
+            <img src="/Assets/Introduction to AI-IBM.png" alt="IBM AI Certificate Preview">
+          </div>
+          <div class="certificate-info">
+            <h3>Introduction to Artificial Intelligence(AI)</h3>
+            <p>Issued by: Coursera/IBM</p>
+            <p>Date: Aug 2025</p>
+            <a href="/Assets/Coursera ZL28OBJLW4ME.pdf" target="_blank" class="btn">View Certificate</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Hire Me Section -->
+  <!-- Projects Section -->
+  <section id="projects" class="card green-bg">
+    <h2>Projects</h2>
+    <div class="carousel-container">
+      <button class="nav-arrow prev" onclick="scrollSection('projects-grid', -1)" aria-label="Previous projects">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="nav-arrow next" onclick="scrollSection('projects-grid', 1)" aria-label="Next projects">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="projects-grid" id="projects-grid">
+        <!-- Project cards remain the same as before -->
+        <div class="project-card">
+          <div class="project-preview">
+            <img src="/Assets/AI chatbot.png" alt="AI Chatbot Preview">
+          </div>
+          <div class="project-info">
+            <h3>AI Chatbot</h3>
+            <p>An intelligent chatbot powered by AI that can engage in natural conversations and assist users with various tasks.</p>
+            <a href="https://ai-chatbot-a660e3.zapier.app" target="_blank" class="btn">View Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-preview">
+            <img src="/Assets/Plant Gaurd.png" alt="Plant Guard Preview">
+          </div>
+          <div class="project-info">
+            <h3>Plant Guard</h3>
+            <p>A Figma design for a smart plant monitoring and care application.</p>
+            <a href="https://www.figma.com/design/3U1FB1X9exUrRMmNffGmfg/Plant-Guard?node-id=0-1&t=POXWMiZMoZLtl5Gq-1" target="_blank" class="btn">View Design</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-preview">
+            <img src="/Assets/Google Collab.png" alt="Google Colab Project Preview">
+          </div>
+          <div class="project-info">
+            <h3>Google Colab Project</h3>
+            <p>A data science project implemented in Google Colab showcasing machine learning capabilities.</p>
+            <a href="https://colab.research.google.com/drive/1Ko6NcWUhURONCSAYbRxiWqvs3Yg_GCAH?usp=sharing" target="_blank" class="btn">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hire Me Section with Centered Button -->
   <section id="hire" class="card green-bg">
-    <h2>Hire Me</h2>
-    <p>
-      My journey from hands-on <strong>IT Technical Support</strong> to building <strong>AI-powered solutions</strong> has given me a unique superpower: the ability to see technology through the user's eyes. I don't just build things; I solve human problems.
-    </p>
-    <p>
-      I am now channeling this user-centric mindset into <strong>UI/UX Design</strong>, where I craft intuitive and engaging digital experiences. My technical background in <strong>JavaScript, HTML, and CSS</strong> ensures my designs are not only beautiful but also practical and buildable. I am passionate about leveraging AI and automation to create smarter, more adaptive user interfaces that feel effortless.
-    </p>
-  <p>
-  Let's connect and build something exceptional together.
-</p>
-    <a href="/Luyanda Gamanye CV.pdf" class="btn download-cv-btn" download>
-      <i class="fas fa-download"></i> Download CV
-    </a>
+    <div class="hire-me-content">
+      <h2>Hire Me</h2>
+      <p>
+        My journey from hands-on <strong>IT Technical Support</strong> to building <strong>AI-powered solutions</strong> has given me a unique superpower: the ability to see technology through the user's eyes. I don't just build things; I solve human problems.
+      </p>
+      <p>
+        I am now channeling this user-centric mindset into <strong>UI/UX Design</strong>, where I craft intuitive and engaging digital experiences. My technical background in <strong>JavaScript, HTML, and CSS</strong> ensures my designs are not only beautiful but also practical and buildable. I am passionate about leveraging AI and automation to create smarter, more adaptive user interfaces that feel effortless.
+      </p>
+      <p>
+        Let's connect and build something exceptional together.
+      </p>
+      <a href="/Luyanda Gamanye CV.pdf" class="btn download-cv-btn" download>
+        <i class="fas fa-download"></i> Download CV
+      </a>
+    </div>
   </section>
 
   <!-- Contact Section -->
@@ -633,54 +1197,67 @@
     <i class="fas fa-arrow-up"></i>
   </a>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  const header = document.querySelector('header');
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const header = document.querySelector('header');
 
-  // Toggle nav visibility and accessibility state
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', !expanded);
-  });
-
-  // Enable keyboard interaction (Enter or Space)
-  hamburger.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      hamburger.click();
-    }
-  });
-
-  // Add scroll event listener for header background
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (navLinks.classList.contains('show') && 
-        !navLinks.contains(e.target) && 
-        !hamburger.contains(e.target)) {
-      navLinks.classList.remove('show');
-      hamburger.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // Carousel functionality
-  function scrollSection(sectionId, direction) {
-    const container = document.querySelector(`.${sectionId}`);
-    const cardWidth = container.querySelector('.certificate-card, .project-card').offsetWidth + 32; // Width + gap
-    container.scrollBy({
-      left: cardWidth * direction,
-      behavior: 'smooth'
+    // Toggle nav visibility and accessibility state
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
     });
-  }
-</script>
+
+    // Enable keyboard interaction (Enter or Space)
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        hamburger.click();
+      }
+    });
+
+    // Add scroll event listener for header background
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('show') && 
+          !navLinks.contains(e.target) && 
+          !hamburger.contains(e.target)) {
+        navLinks.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Carousel functionality
+    function scrollSection(sectionId, direction) {
+      const container = document.getElementById(sectionId);
+      const cardWidth = container.querySelector('.certificate-card, .project-card').offsetWidth + 32; // Width + gap
+      container.scrollBy({
+        left: cardWidth * direction,
+        behavior: 'smooth'
+      });
+    }
+
+    // Animate skill bars on scroll
+    function animateSkillBars() {
+      const skillBars = document.querySelectorAll('.skill-progress');
+      
+      skillBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        bar.style.width = width + '%';
+      });
+    }
+
+    // Initialize skill bars animation when page loads
+    window.addEventListener('load', animateSkillBars);
+  </script>
 </body>
 </html>
