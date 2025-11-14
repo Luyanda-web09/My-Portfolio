@@ -52,3 +52,19 @@ if (form) {
     }
   });
 }
+const links = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('.content-section');
+
+links.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Remove "active" class from all links and sections
+    links.forEach(l => l.classList.remove('active'));
+    sections.forEach(s => s.classList.remove('active'));
+
+    // Add "active" class to clicked link and corresponding section
+    link.classList.add('active');
+    document.getElementById(link.dataset.section).classList.add('active');
+  });
+});

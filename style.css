@@ -1001,7 +1001,7 @@ footer {
 }
 
 .back-to-top:hover {
-  background: #339933;
+  background: #0e360e;
   transform: scale(1.1);
 }
 
@@ -1024,7 +1024,7 @@ body {
 }
 
 nav {
-  background: #6c63ff;
+  background: #004d00;
   padding: 1rem;
   text-align: center;
 }
