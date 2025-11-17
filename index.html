@@ -174,6 +174,9 @@
       width: 30px;
       height: 21px;
       justify-content: space-between;
+      background: transparent;
+      border: none;
+      padding: 0;
     }
     
     .hamburger span {
@@ -183,6 +186,19 @@
       background: var(--text-dark);
       border-radius: 3px;
       transition: var(--transition);
+    }
+    
+    /* Hamburger animation */
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
     }
     
     /* Hero Section */
@@ -486,22 +502,41 @@
       z-index: 2;
       border: none;
       transition: var(--transition);
+      opacity: 0.9;
     }
     
     .nav-arrow:hover {
       background: var(--primary-light);
+      opacity: 1;
     }
     
     .nav-arrow.prev {
-      left: -20px;
+      left: 10px;
     }
     
     .nav-arrow.next {
-      right: -20px;
+      right: 10px;
     }
     
     .nav-arrow i {
       font-size: 20px;
+    }
+    
+    /* Mobile-specific arrow styles */
+    @media (max-width: 768px) {
+      .nav-arrow {
+        display: flex;
+        width: 36px;
+        height: 36px;
+      }
+      
+      .nav-arrow.prev {
+        left: 5px;
+      }
+      
+      .nav-arrow.next {
+        right: 5px;
+      }
     }
     
     /* Hire Me Section - Centered Button */
@@ -684,8 +719,9 @@
         grid-template-columns: 1fr;
       }
       
+      /* Show arrows on tablets */
       .nav-arrow {
-        display: none;
+        display: flex;
       }
     }
     
@@ -708,11 +744,13 @@
         opacity: 0;
         transition: var(--transition);
         z-index: 999;
+        visibility: hidden;
       }
       
       .nav-links.show {
         transform: translateY(0);
         opacity: 1;
+        visibility: visible;
       }
       
       .hamburger {
@@ -729,6 +767,11 @@
       
       .skills-grid {
         grid-template-columns: 1fr;
+      }
+      
+      /* Ensure arrows are visible on mobile */
+      .nav-arrow {
+        display: flex;
       }
     }
     
@@ -758,6 +801,20 @@
         flex-direction: column;
         gap: 0.5rem;
       }
+      
+      /* Adjust arrow positioning for very small screens */
+      .nav-arrow {
+        width: 32px;
+        height: 32px;
+      }
+      
+      .nav-arrow.prev {
+        left: 2px;
+      }
+      
+      .nav-arrow.next {
+        right: 2px;
+      }
     }
   </style>
 </head>
@@ -775,18 +832,17 @@
         <li><a href="#hire">Hire Me</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div
+      <button
         class="hamburger"
         id="hamburger"
-        role="button"
         aria-label="Menu"
         aria-expanded="false"
-        tabindex="0"
+        aria-controls="navLinks"
       >
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
     </nav>
   </header>
 
@@ -1205,6 +1261,7 @@
     // Toggle nav visibility and accessibility state
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
+      hamburger.classList.toggle('active');
       const expanded = hamburger.getAttribute('aria-expanded') === 'true';
       hamburger.setAttribute('aria-expanded', !expanded);
     });
@@ -1232,8 +1289,18 @@
           !navLinks.contains(e.target) && 
           !hamburger.contains(e.target)) {
         navLinks.classList.remove('show');
+        hamburger.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
       }
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
     });
 
     // Carousel functionality
